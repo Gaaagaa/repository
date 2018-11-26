@@ -1,4 +1,5 @@
 # <center>我的C++代码风格</center>
+
 ## 1 前言
 
 &emsp;&emsp;在多人团队开发中，使用统一的代码规范，项目开发前期利于团队协作，中期利于工作审核，后期利于降低维护成本，总而言之，代码规范很重要。这话虽然简单，但一直未能引起重视，直到我看到下图的那个新闻后，我就知道有很多码农还活着真不简单啊。我们姑且不去深究这个新闻的真实性，但至少我们也该意识到代码规范的重要性了吧。
@@ -461,80 +462,80 @@ x_int32_t vx_stricmp(x_cstring_t xszt_lcmp, x_cstring_t xszt_rcmp)
 
 在这里列举几个我常用的代码片段（主要用在“**注释**”和“**代码区段分割**”上）：
 - 文件头部的说明：快捷键为 `//-`，代码片段内容如下
-    ```
-    /**
-     * @file    $FILE_BASE$.$FILE_EXT$
-     * <pre>
-     * Copyright (c) $YEAR$, Gaaagaa All rights reserved.
-     * 
-     * 文件名称：$FILE_BASE$.$FILE_EXT$
-     * 创建日期：$YEAR$年$MONTH_02$月$DAY_02$日
-     * 文件标识：
-     * 文件摘要：$end$
-     * 
-     * 当前版本：1.0.0.0
-     * 作    者：
-     * 完成日期：$YEAR$年$MONTH_02$月$DAY_02$日
-     * 版本摘要：
-     * 
-     * 取代版本：
-     * 原作者  ：
-     * 完成日期：
-     * 版本摘要：
-     * </pre>
-     */
-     ```
+```
+/**
+ * @file    $FILE_BASE$.$FILE_EXT$
+ * <pre>
+ * Copyright (c) $YEAR$, Gaaagaa All rights reserved.
+ * 
+ * 文件名称：$FILE_BASE$.$FILE_EXT$
+ * 创建日期：$YEAR$年$MONTH_02$月$DAY_02$日
+ * 文件标识：
+ * 文件摘要：$end$
+ * 
+ * 当前版本：1.0.0.0
+ * 作    者：
+ * 完成日期：$YEAR$年$MONTH_02$月$DAY_02$日
+ * 版本摘要：
+ * 
+ * 取代版本：
+ * 原作者  ：
+ * 完成日期：
+ * 版本摘要：
+ * </pre>
+ */
+```
 - 大区段分割线（80 个字符）：快捷键为 `///` ，代码片段如下：
-    ```
-    ////////////////////////////////////////////////////////////////////////////////
-    ```
+```
+////////////////////////////////////////////////////////////////////////////////
+```
 - 次级区段分割线（70 个字符）：快捷键为 `//=` ，代码片段如下：
-    ```
-    //====================================================================
-    ```
+```
+//====================================================================
+```
 - 函数的简短注释：快捷键为 `//;` ，代码片段如下：
-    ```
-    /**********************************************************/
-    /**
-     * @brief $end$
-     */
-    ```
+```
+/**********************************************************/
+/**
+ * @brief $end$
+ */
+```
 - 逻辑相关（函数内 或 结构内定义）的代码块分割线（40 个字符）：快捷键为 `//=s` ，代码片段如下：
-    ```
-    //======================================
-    ```
+```
+//======================================
+```
 - 在上面的“**步骤5**”中，我们提到修改 `Document Method` 的内容如下：
-    ```
-    /**********************************************************/
-    /**
-     * @brief $end$
-     * 
-     * @param [in ] $MethodArgName$ : 
-     * 
-     * @return $SymbolType$
-     *         
-     */
-    ```
+```
+/**********************************************************/
+/**
+ * @brief $end$
+ * 
+ * @param [in ] $MethodArgName$ : 
+ * 
+ * @return $SymbolType$
+ *         
+ */
+```
   在编辑代码时，我们将光标定位到（放到）函数名中，然后通过如下菜单步骤添加函数的注释：
-    ```
-    "VAssistX" => "Code Generation and Refactoring" => "Document Method"
-    ```
+```
+"VAssistX" => "Code Generation and Refactoring" => "Document Method"
+```
   另外，我们可以通过添加**全局的组合快捷键：`Ctrl+Shift+D`** 来快速调用该菜单命令，设置步骤如下：
-    ```
-    1. 菜单 “Tools” => “Options...” => “Options” 对话框 => “Environment” => “Keyboard”；
-    2. 在 “Show commands containing:” 输入：VAssistX.RefactorDocumentMethod ，然后在列表中选中该命令项；
-    3. “Use new shortcut in:” ：Global
-    4. “Press shortcut keys:” ：Ctrl+Shift+D
-    5. 点击 “Assign” 按钮，然后再点击 “OK” 按钮保存设置后退出，这就完成了整个命令的快捷键设置流程。
-    ```
+```
+1. 菜单 “Tools” => “Options...” => “Options” 对话框 => “Environment” => “Keyboard”；
+2. 在 “Show commands containing:” 输入：VAssistX.RefactorDocumentMethod ，然后在列表中选中该命令项；
+3. “Use new shortcut in:” ：Global
+4. “Press shortcut keys:” ：Ctrl+Shift+D
+5. 点击 “Assign” 按钮，然后再点击 “OK” 按钮保存设置后退出，这就完成了整个命令的快捷键设置流程。
+```
 以上提到的代码片段，也只是我个人常用的一部分，其他的，视个人习惯与项目情况，自行配制。VisualAssistX设置的代码片段最终会保存到磁盘中的文件：`C:\Users\{用户名}\AppData\Roaming\VisualAssist\Autotext\cpp.tpl` ，可以备份该文件用于其他情况的用途（如团队中使用统一的代码片段输入方式）。我个人的可在此下载[cpp.tpl](https://raw.githubusercontent.com/Gaaagaa/repository/master/cpp.tpl)。
 
 #### 4.2 QtCreator
 
 &emsp;&emsp;QtCreator没有VisualAssistX那样强大的插件，但也提供了代码片段快速插入的功能，可通过如下步骤进行配置：
-   1. 菜单“Tools” => “Options...” => “Options”对话框 => “Text Editor” => “Snippets” 选项卡；
-   2. 此时可添加相应的代码片段，其中“Trigger” 为代码编写过程中触发的字符串（相当于快捷键）;
-   3. 完成添加（或修改）操作后，记得保存。
+1. 菜单“Tools” => “Options...” => “Options”对话框 => “Text Editor” => “Snippets” 选项卡；
+2. 此时可添加相应的代码片段，其中“Trigger” 为代码编写过程中触发的字符串（相当于快捷键）;
+3. 完成添加（或修改）操作后，记得保存。
 
 &emsp;&emsp;至于要配置成什么样的代码片段功能，我这里就不再赘述，但就我个人的使用经验来讲，这方面，QtCreator当前版本（4.7.1版）做得还不够成熟，期待在以后的升级版本中，能有更大改进。
 
