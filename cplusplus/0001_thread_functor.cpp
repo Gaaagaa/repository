@@ -7,16 +7,38 @@ class background_task
 {
 	// constructor/destructor
 public:
-	background_task(size_t st_count = 0)
-        : m_st_count(st_count)
+	background_task(size_t st_task_id = 0)
+        : m_st_task_id(st_task_id)
 	{
-		std::cout << std::this_thread::get_id() << " => constructor task" << std::endl;
+		std::cout << std::this_thread::get_id() << " => constructor task : " << m_st_task_id << std::endl;
 	}
 
 	~background_task()
 	{
-		std::cout << std::this_thread::get_id() << " => destructor task" << std::endl;
+		std::cout << std::this_thread::get_id() << " => destructor task : " << m_st_task_id << std::endl;
 	}
+
+    background_task(const background_task & xobject)
+    {
+        if (this != &xobject)
+        {
+            this->m_st_task_id = xobject.m_st_task_id + 1;
+        }
+
+        std::cout << std::this_thread::get_id() << " => copy constructor task : " << m_st_task_id << std::endl;
+    }
+
+    background_task & operator=(const background_task & xobject)
+    {
+        if (this != &xobject)
+        {
+            this->m_st_task_id = xobject.m_st_task_id + 1;
+        }
+
+        std::cout << std::this_thread::get_id() << " => operator = () task : " << this->m_st_task_id << std::endl;
+
+        return *this;
+    }
 
 public:
 	void operator()() const
@@ -25,7 +47,7 @@ public:
 		while (1)
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-            if (++st_count > 60)
+            if (++st_count > 10)
             {
                 break;
             }
@@ -35,7 +57,7 @@ public:
 	}
 
 protected:
-    size_t m_st_count;
+    size_t m_st_task_id;
 };
 
 int main(int argc, char * argv[])
